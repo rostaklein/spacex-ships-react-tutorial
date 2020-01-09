@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, CardGroup } from 'react-bootstrap';
 
-const Ships = () => {
+const Ships = ({ onShipClick }) => {
   const [ships, setShips] = useState([]);
 
   const loadShips = async () => {
@@ -11,25 +11,29 @@ const Ships = () => {
     setShips(await response.json());
   };
 
-  //   useEffect(() => {
-  //     loadShips();
-  //   }, []);
+  useEffect(() => {
+    loadShips();
+  }, []);
 
   return (
     <div>
       <h2>Ships list</h2>
-      <Button onClick={loadShips}>Load ships</Button>
-      <div className="ships-list">
+      <CardGroup>
         {ships.map(ship => (
           <Card key={ship.ship_id}>
-            <Card.Img variant="top" src={ship.image} />
+            <Card.Img variant="top" src={ship.image} style={{ height: 120 }} />
             <Card.Body>
               <Card.Title>{ship.ship_name}</Card.Title>
               <Card.Text>Home port: {ship.home_port}</Card.Text>
             </Card.Body>
+            <Card.Footer>
+              <Button size="sm" onClick={() => onShipClick(ship)}>
+                Add to cart
+              </Button>
+            </Card.Footer>
           </Card>
         ))}
-      </div>
+      </CardGroup>
     </div>
   );
 };

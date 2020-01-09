@@ -1,18 +1,19 @@
+body {
+  background: #eee;
+  font-size: 0.8rem;
+}
 .App {
   max-width: 960px;
-  margin: 20px auto;
+  margin: 0 auto;
+  padding: 20px 30px;
+  background: white;
 }
 
 button {
   margin-right: 10px;
 }
 
-.ships-list {
-  display: flex;
-  margin: 10px 0;
-}
-
-.ships-list > div {
-  flex: 1 0 0;
-  margin-right: 10px;
+.logo {
+  max-height: 80px;
+  margin-bottom: 20px;
 }
