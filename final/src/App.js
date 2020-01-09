@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 
 import { Button } from 'react-bootstrap';
+import Ships from './components/ShipsList';
 
 function App() {
   const [counter, setCounter] = useState(0);
@@ -15,6 +16,8 @@ function App() {
       <Button size={'sm'} onClick={() => setCounter(counter - 1)}>
         decrement
       </Button>
+      <hr />
+      <Ships />
     </div>
   );
 }
